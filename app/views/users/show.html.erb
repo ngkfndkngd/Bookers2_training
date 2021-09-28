@@ -1,2 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= render 'books/new', user: @user,book: @book_ %>
+
+<h2>Books</h2>
+<% @book.each do |book| %>
+<%= link_to (attachment_image_tag book.user, :profile_image, size:"40x40", format:'jpeg', fallback:"no_image.jpg"), user_path(book.user) %>
+<%= link_to book.title, book_path(book) %>
+<%= book.body %>
+<% end %>
